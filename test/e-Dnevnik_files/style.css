@@ -1,0 +1,696 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0b1 | 201101 
+   NOTE: WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* /reset */
+
+body {
+    font-size: 13px;
+    font-family: "Trebuchet MS", "Helvetica", sans-serif;
+    background-color: #E9EBEE;
+    color: #333333;
+    overflow-y: scroll;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #235694;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #46A246;
+    font-weight: bold;
+}
+
+#login {
+    margin-top: 20px;
+}
+
+#info-box {
+    width: 400px;
+    margin: auto auto;
+    background-color: #FFFFFF;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #CACACA;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#info-box.notification {
+    border: 1px solid #FF745D;
+}
+
+/* This parent can be any width and height */
+.login-wrap {
+    text-align: center;
+    font-size: 0;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.login-wrap:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* The element to be centered, can
+   also be of any width and height */
+.login-wrap-centered {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+#login-box {
+    width: 250px;
+    display: inline-block;
+    margin: auto 10px auto auto;
+    background-color: #FFFFFF;
+    padding: 20px 30px 20px 30px;
+    border: 1px solid #CACACA;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: #C8C8C8 0 5px 10px 0;
+    -webkit-box-shadow: #C8C8C8 0 5px 10px 0;
+    -khtml-box-shadow: #C8C8C8 0 5px 10px 0;
+    /*box-shadow: #C8C8C8 0 5;*/
+    box-shadow: 0 2px 5px #C8C8C8;
+    vertical-align: middle;
+    min-height: 160px;
+}
+
+#login-box .title {
+    font-size: 18px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#login-box label {
+    display: inline-block;
+    *display: inline;
+    width: 40%;
+    vertical-align: middle;
+}
+
+#login-box input, .button {
+    padding: 4px;
+    border: 1px solid #E3E3E3;
+    background-color: #F6F6F6;
+    color: #555555;
+    vertical-align: middle;
+}
+
+#login-box .input {
+    width: 135px;
+}
+
+#login-box .login-note {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#wrap {
+    width: 960px;
+    margin: 15px auto auto auto;
+    background-color: #FFFFFF;
+    border: 1px solid #D1D1D2;
+    border-radius: 5px;
+    -moz-box-shadow: #C8C8C8 0 5px 15px 2px;
+    -webkit-box-shadow: #C8C8C8 0 5px 15px 2px;
+    -khtml-box-shadow: #C8C8C8 0 5px 15px 2px;
+    box-shadow: 0 2px 5px #C8C8C8;
+}
+
+.two-col div {
+    display: inline-block;
+    *display: inline;
+    width: 50%;
+    vertical-align: top;
+}
+
+#content {
+    width: 880px;
+    margin: auto auto;
+}
+
+#e-dnevnik {
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#e-dnevnik .subtitle {
+    font-size: 16px;
+}
+
+/* studentService-class */
+#student-class {
+    font-size: 12px;
+    padding: 4px 20px;
+    background-color: #235694;
+    color: #FFFFFF;
+}
+
+#student-class a {
+    color: #CCCCCC;
+}
+
+#student-class a:hover {
+    color: #46A246;
+}
+
+#student-class hr {
+    color: #426B9E;
+    background: #426B9E;
+    border: 0;
+    height: 1px;
+}
+
+/* /studentService-class */
+
+.aaiedu {
+    text-align: right;
+}
+
+.class-info {
+    text-align: right;
+}
+
+.birthday {
+    text-align: center;
+    background-color: #46A246;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#menu {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#menu a, a.nav {
+    font-size: 13px;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid #E3E3E3;
+    background-color: #F6F6F6;
+    color: #555555;
+    display: inline-block;
+}
+
+#menu a:hover, a.nav:hover {
+    background-color: #46A246;
+    border-color: #2d7339;
+    color: #FFFFFF;
+}
+
+#menu a.navActive, a.nav.navActive {
+    background-color: #235694;
+    border-color: #1c3d74;
+    color: #FFFFFF;
+}
+
+.sectionTitle {
+    /*width:800px;*/
+    margin: auto auto;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.studentName {
+    font-size: 17px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.section {
+    border: 2px dashed #E3E3E3;
+    background-color: #F6F6F6;
+    padding: 10px;
+}
+
+#courses, #classes {
+    /*width:800px;*/
+    margin: auto auto;
+    font-size: 15px;
+}
+
+.sectionText {
+    /*width: 720px;*/
+    margin: auto auto;
+}
+
+.course {
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: #333333;
+    background: #F6F6F6;
+    margin-bottom: 2px;
+}
+
+.course:hover {
+    color: #FFFFFF;
+    background-color: #46A246;
+    display: block;
+}
+
+.courseActive div {
+    color: #FFFFFF;
+    background-color: #235694;
+    display: block;
+}
+
+.class-wrap {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    color: #333333;
+    background: #F6F6F6;
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.class-wrap:hover, .class-wrap:active, .class-wrap:focus {
+    font-weight: inherit;
+    color: #FFFFFF;
+    background-color: #46A246;
+}
+
+.school-class {
+    font-weight: bold;
+    display: block;
+    font-size: 16px;
+}
+
+.class {
+    padding: 5px 15px;
+    float: left;
+}
+
+.overall-score {
+    text-align: right;
+    float: right;
+    padding: 23px 15px 0 0;
+}
+
+.overall-score small {
+    display: block;
+    font-size: 11px;
+}
+
+
+.course-info, .class-info {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.class-info {
+    text-align: right;
+}
+
+.grades {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.notes {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.student-details {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.student-details table {
+    width: 50%;
+}
+
+th, tr, td {
+    border: 1px solid #E3E3E3;
+}
+
+th, td {
+    vertical-align: middle;
+    padding: 5px;
+}
+
+th {
+    background-color: #F6F6F6;
+    font-weight: bold;
+}
+
+.legend th, .legend tr, .legend td {
+    border: 0;
+    padding: 0;
+}
+
+.legend img {
+    padding-left: 10px;
+    padding-right: 4px;
+}
+
+.student-details th {
+    text-align: left;
+}
+
+.notes-title, .tasks-title {
+    padding: 7px;
+    font-weight: bold;
+    background-color: #235694;
+    color: #FFFFFF;
+}
+
+.datum_upisa {
+    vertical-align: middle;
+}
+
+.inactive {
+    color: #B9B9B9;
+}
+
+.active {
+    color: #FF1714;
+    font-weight: bold;
+}
+
+#notes .datum, #grade_notes .datum {
+    text-align: center;
+    width: 150px;
+}
+
+#grade_notes .ocjena {
+    text-align: center;
+    width: 75px;
+}
+
+#absent {
+    /*width: 800px;*/
+    margin: auto auto;
+    font-size: 13px;
+}
+
+#absent th {
+    border: 1px solid #E3E3E3;
+    background-color: #F6F6F6;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#absent tbody tr:hover {
+    background-color: #F6F6F6;
+}
+
+#absent .datum, .sat, .opravdano {
+    text-align: center;
+}
+
+#absent .predmet, .razlog {
+    text-align: left;
+}
+
+.okp-toggle {
+    font-size: 13px;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid #E3E3E3;
+    background-color: #F6F6F6;
+    color: #555555;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.okp-toggle:hover {
+    background-color: #46A246;
+    color: #FFFFFF;
+}
+
+select {
+    font-family: "Trebuchet MS", "Helvetica", sans-serif;
+    background-color: #F6F6F6;
+    border: 1px solid #E3E3E3;
+    font-size: 20px;
+    color: #333333;
+}
+
+td.whaf, td.whafb {
+    text-align: center;
+}
+
+td.whafb {
+    font-weight: bold;
+    font-size: 190%;
+}
+
+td.green {
+    color: green;
+}
+
+td.red, .red {
+    color: red;
+}
+
+#footer {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/**/
+
+blockquote {
+    padding: 0 0 0 10px;
+    margin: 0 0 10px 50px;
+    border-left: 5px solid #eeeeee;
+    font-size: 18px;
+    color: #999999;
+    text-align: left;
+}
+
+blockquote small {
+    display: block;
+    line-height: 20px;
+    color: #777777;
+    font-size: 12px;
+}
+
+blockquote small:before {
+    content: '\2014 \00A0';
+}
+
+/********** COMMON **********/
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearall {
+    clear: both;
+}
+
+.inline {
+    display: inline;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.orange {
+    color: orange;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.t-right {
+    text-align: right;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.t-center-bold {
+    text-align: center;
+    font-weight: bold;
+}
+
+.t-center-red {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    padding-bottom: 10px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt50 {
+    margin-top: 50px;
+}
+
+.mt100 {
+    margin-top: 100px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.rounded {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.lt_rounded {
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.rt_rounded {
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.lb_rounded {
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.rb_rounded {
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.average {
+    padding: 10px 0;
+    text-align: right;
+}
+
+.alert-achievement {
+    padding: 5px;
+    background: #fffaeb;
+    color: #29170b;
+    border: 1px solid #e7c7ac;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.alert-achievement img {
+    vertical-align: text-bottom;
+}

@@ -1,0 +1,1 @@
+start w:\Util\Mongoose\mongoose.exe -document_root w:\Code\github\e-dnevnik-sazetak -listening_port 8100 -start_browser yes

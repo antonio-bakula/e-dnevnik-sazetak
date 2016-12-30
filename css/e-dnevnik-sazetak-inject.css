@@ -1,0 +1,89 @@
+.e-dnevnik-wrapper
+{
+  font-size: 12px;
+	margin: 20px 0px;
+	border-collapse: collapse;
+	text-align: left;
+	font-weight: normal;
+  background-color: #F6F6F6;
+  padding-left: 20px;
+}
+
+.e-dnevnik-table
+{
+	width: 400px;
+  border: 0px!important;
+}
+
+.e-dnevnik-table thead,
+.e-dnevnik-table tfoot
+{
+	line-height: 1.8em;
+	font-size: 1.4em;
+}
+
+.e-dnevnik-table thead
+{
+	border-bottom: 2px solid #6678b1;
+}
+
+.e-dnevnik-table tfoot
+{
+	border-top: 2px solid #6678b1;
+}
+
+.e-dnevnik-table tr 
+{
+  border: 0px;  
+}
+
+.e-dnevnik-table td
+{
+	padding: 3px 5px;
+  border: 0px;  
+}
+
+.e-dnevnik-table tbody td
+{
+	padding: 4px 6px;
+  border: 0px;  
+}
+
+.e-dnevnik-table tbody tr:first-child td
+{
+	padding-top: 10px;
+}
+
+.e-dnevnik-table tbody tr:last-child td
+{
+	padding-bottom: 10px;
+}
+
+.e-dnevnik-table tr:hover
+{
+	color:chocolate ;
+}
+
+.excellence-mark
+{
+  font-weight: 900;
+}
+
+.excellence-mark-shadow
+{
+  color:#111;
+  font-weight: lighter;
+  text-shadow:0 0 2px #774400, 0 0 1px #660000;
+}
+
+.txt-num
+{
+  text-align: right;
+}
+
+.sazetak-toggle-button
+{
+	vertical-align: middle;
+	height:32px;
+	margin-left: 15px;
+}

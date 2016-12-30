@@ -1,0 +1,43 @@
+{
+  "description": "Sažeti prikaz uspjeha unutar eDnevnika",
+  "manifest_version": 2,
+  "name": "e-Dnevnik sažetak",
+  "version": "1.0",
+  "homepage_url": "http://www.antoniob.com",
+  "icons": {
+    "128": "/icons/e-dnevnik-128.png",
+    "64": "/icons/e-dnevnik-64.png",
+    "48": "/icons/e-dnevnik-48.png",
+    "32": "/icons/e-dnevnik-32.png"
+  },
+
+  "permissions": [
+   "activeTab",
+    "tabs"
+   ],  
+
+  "page_action": {
+    "browser_style": true,
+    "default_icon": {
+      "128": "/icons/e-dnevnik-128.png",
+      "64": "/icons/e-dnevnik-64.png",
+      "48": "/icons/e-dnevnik-48.png",
+      "32": "/icons/e-dnevnik-32.png"
+    },
+    "default_title": "e-Dnevnik sažetak",
+    "default_popup": "/popup.html"
+  },
+
+  "background": {
+    "scripts": ["/js/background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://ocjene.skole.hr/pregled/ocjene/*"],
+      "js": ["/js/jquery-2.2.4.min.js", "/js/start.js"],
+      "css": ["/css/e-dnevnik-sazetak-inject.css"]
+    }
+  ]
+
+}
