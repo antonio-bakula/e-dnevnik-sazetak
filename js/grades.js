@@ -56,3 +56,107 @@ class GradeList {
   }
 
 }
+
+class GradeTableFactory {
+  constructor (gradeList) {
+    this._gradeList = null;
+    if (arguments.length > 0) {
+      this._gradeList = gradeList;
+    } else {
+      this._gradeList = new GradeList();
+    }
+    
+    this.ColumnSubject = new GradeTableColumnInfo('Predmet');
+    this.ColumnGrade = new GradeTableColumnInfo('Prosjek');
+    this.ColumnFinalGrade = new GradeTableColumnInfo('Ocjena');
+    this.ExcellenceMarkCssClass = '';
+  }
+
+
+  get GradeList() {
+    return this._gradeList;
+  }
+
+
+  BuildTableElement() {
+    var tableElement = document.createElement('table');
+    
+    var th = this._getTableHeader();
+    tableElement.appendChild(th);
+
+    var tf = this._createGradeTableRow(this.GradeList.Sum, 'tfoot');
+    tableElement.appendChild(tf);
+
+    var tbody = document.createElement('tbody');
+    for (var gr of this.GradeList.Items)
+    {
+      var tr = this._createGradeTableRow(gr);
+      tbody.appendChild(tr);
+    }
+    tableElement.appendChild(tbody);
+
+    return tableElement;
+  }
+
+  _getTableHeader() {
+    var th = document.createElement('thead');
+    
+    var tds = this._getHeaderTableCell(this.ColumnSubject);
+    th.appendChild(tds);
+    
+    var tdg = this._getHeaderTableCell(this.ColumnGrade);
+    th.appendChild(tdg);
+
+    var tdf = this._getHeaderTableCell(this.ColumnFinalGrade);
+    th.appendChild(tdf);
+
+    return th;
+  }
+
+  _getHeaderTableCell(columnInfo) {
+    return this._createTableData(columnInfo.Title, columnInfo.CssClass);
+  }
+
+  _createTableData(textContent, cssClass) {
+    var td = document.createElement('td');
+    td.appendChild(document.createTextNode(textContent));
+
+    if (cssClass) {
+      td.classList.add(cssClass);
+    }
+    return td;
+  }
+
+  _createGradeTableRow(grade, tag = 'tr') {
+    var tr = document.createElement(tag);
+    
+    var tds = this._createTableData(grade.Subject, this.ColumnSubject.CssClass);
+    tr.appendChild(tds);
+
+    var tdg = this._createTableData(grade.Grade.toFixed(2), this.ColumnGrade.CssClass);
+    tr.appendChild(tdg);
+
+    var tdf = this._createTableData(grade.FinalGrade.toString(), this.ColumnFinalGrade.CssClass);
+    tr.appendChild(tdf);
+
+    if (this.ExcellenceMarkCssClass && grade.Grade == 5.00) {
+      tr.classList.add(this.ExcellenceMarkCssClass);
+    }
+
+    return tr;
+  }
+
+}
+
+class GradeTableColumnInfo {
+  constructor(title, cssClass) {
+    this.Title = "";
+    this.CssClass = "";
+    if (arguments.length > 0) {
+      this.Title = title;
+    }
+    if (arguments.length  > 1) {
+      this.CssClass = cssClass;
+    }
+  }
+}

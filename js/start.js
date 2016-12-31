@@ -1,7 +1,7 @@
 
-eDnevnikOpciUspjeh('h3', '#courses .sectionTitle', 'e-dnevnik-table');
+eDnevnikOpciUspjeh('#courses .sectionTitle', 'e-dnevnik-table');
 
-function eDnevnikOpciUspjeh(htag, appendToSelector, tableClass)
+function eDnevnikOpciUspjeh(appendToSelector, tableClass)
 {
   // if e-dnevnik-summary allready exists work is allread done
   if ($('#e-dnevnik-summary').length > 0) {
@@ -13,52 +13,24 @@ function eDnevnikOpciUspjeh(htag, appendToSelector, tableClass)
     return;
   }
 
-  var footerMarkup = addRowToMarkup('tfoot', grades.Sum);
-
-  var rowsMarkup = '';
-  for (var gr of grades.Items)
-  {
-    rowsMarkup += addRowToMarkup('tr', gr);
-  }
-
-  var markup = 
-  `
-    <div id="e-dnevnik-summary" class="e-dnevnik-wrapper">
-      <table class="${ tableClass }">
-        <thead>
-          <td>Predmet</td>
-          <td class="txt-num">Prosjek</td>
-          <td class="txt-num">Ocjena</td>
-        </thead>
-        ${ footerMarkup }
-        <tbody>
-          ${ rowsMarkup }
-        </tbody>
-      </table>
-    </div>
-  `;
-  $(appendToSelector).append(markup);
-}
-
-function addRowToMarkup(tag, sg)
-{
-  var addClass = '';
-  if (sg.Grade == 5.00) {
-    addClass = ' class="excellence-mark"';
-  }
-  var row = 
-    `
-    <${ tag }${ addClass }>
-      <td>${ sg.Subject }</td>
-      <td class="txt-num">${ sg.Grade.toFixed(2) }</td>
-      <td class="txt-num">${ sg.FinalGrade }</td>
-    </${ tag }>
-    `;
-  return row;
-}
-
-function generateGradesElements(grades) {
   var root = document.createElement('div');
+  root.id = 'e-dnevnik-summary';
+  root.classList.add('e-dnevnik-wrapper');
+
+  var table = generateGradesElements(grades);
+  table.classList.add(tableClass);
+  root.appendChild(table);
+
+  $(appendToSelector)[0].appendChild(root);
+}
+
+function generateGradesTable(grades) 
+{
+  var factory = new GradeTableFactory(grades);
+  factory.ColumnGrade.CssClass = 'txt-num';
+  factory.ColumnFinalGrade.CssClass = 'txt-num';
+  factory.ExcellenceMarkCssClass = 'excellence-mark';
+  return factory.BuildTableElement();
 }
 
 function findAllGrades()
