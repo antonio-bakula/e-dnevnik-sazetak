@@ -9,15 +9,14 @@ function eDnevnikOpciUspjeh(htag, appendToSelector, tableClass)
   }
 
   var grades = findAllGrades();
-  if (grades.length == 0) {
+  if (!grades.Valid) {
     return;
   }
 
-  var fg = calculateSumItem(grades);  
-  var footerMarkup = addRowToMarkup('tfoot', fg);
+  var footerMarkup = addRowToMarkup('tfoot', grades.Sum);
 
   var rowsMarkup = '';
-  for (var gr of grades)
+  for (var gr of grades.Items)
   {
     rowsMarkup += addRowToMarkup('tr', gr);
   }
@@ -58,38 +57,24 @@ function addRowToMarkup(tag, sg)
   return row;
 }
 
-// function generateGradesElements(grades) {
-//   var root = document.createElement('div');
-// }
+function generateGradesElements(grades) {
+  var root = document.createElement('div');
+}
 
 function findAllGrades()
 {
-  var grades = new Array();
+  var grades = new GradeList();
   var gradesSelect = $('.grades');
   for (var grobj of gradesSelect)
   {
-    var sg = getSubjectGrades(grobj);
-    if (sg.Valid) {
-      grades.push(sg);
-    }
+    var sg = getSubjectGrade(grobj);
+    grades.addGradeObject(sg);
   }
   return grades;
 }
 
-function calculateSumItem(grades)
-{
-  var fg = new Object();
-  fg.Subject = 'Ukupno';
-  fg.Grade = grades.map(nn => nn.FinalGrade).reduce((a, b) => a + b, 0) / grades.length;
-  fg.FinalGrade = Math.round(fg.Grade);
-  return fg;
-}
-
-function getSubjectGrades(grel) {
-  var subgr = new Object();
-  subgr.FinalGrade = NaN;
-  subgr.Grade = NaN;
-  subgr.Subject = "";
+function getSubjectGrade(grel) {
+  var subgr = new SubjectGrade();
 
   var course = $(grel).prev().find('.course');
   if (course.length == 0) {
@@ -109,9 +94,8 @@ function getSubjectGrades(grel) {
   if (average.length > 0) {
     var avgText = average.text().replace(',', '.').replace(/[^\d.-]/g, '');
     subgr.Grade = Number.parseFloat(avgText);    
-    subgr.FinalGrade = Math.round(subgr.Grade);
   }
-  subgr.Valid = subgr.Subject.length > 0 && !isNaN(subgr.Grade) && !isNaN(subgr.FinalGrade) && subgr.Grade > 0 && subgr.FinalGrade > 0;
   return subgr;
 }  
+
 
