@@ -4,7 +4,7 @@ eDnevnikOpciUspjeh('#courses .sectionTitle', 'e-dnevnik-table');
 function eDnevnikOpciUspjeh(appendToSelector, tableClass)
 {
   // if e-dnevnik-summary allready exists work is allread done
-  if ($('#e-dnevnik-summary').length > 0) {
+  if ($('#e-dnevnik-summary') != null) {
     return;
   }
 
@@ -17,11 +17,11 @@ function eDnevnikOpciUspjeh(appendToSelector, tableClass)
   root.id = 'e-dnevnik-summary';
   root.classList.add('e-dnevnik-wrapper');
 
-  var table = generateGradesElements(grades);
+  var table = generateGradesTable(grades);
   table.classList.add(tableClass);
   root.appendChild(table);
 
-  $(appendToSelector)[0].appendChild(root);
+  $(appendToSelector).appendChild(root);
 }
 
 function generateGradesTable(grades) 
@@ -36,7 +36,7 @@ function generateGradesTable(grades)
 function findAllGrades()
 {
   var grades = new GradeList();
-  var gradesSelect = $('.grades');
+  var gradesSelect = document.querySelectorAll('.grades');
   for (var grobj of gradesSelect)
   {
     var sg = getSubjectGrade(grobj);
@@ -48,26 +48,20 @@ function findAllGrades()
 function getSubjectGrade(grel) {
   var subgr = new SubjectGrade();
 
-  var course = $(grel).prev().find('.course');
-  if (course.length == 0) {
-    course = $(grel).parent().prev().find('.course');
-  }
-
-  if (course.length > 0) {
-    var courseFullDesc = course.text();
-    var teacher = course.find('.course-info');
-    if (teacher.length > 0) {
-      var courseDesc = courseFullDesc.replace(teacher.text(), '').trim();
+  var course = grel.parentElement.previousSibling.querySelector('.course');
+  if (course != null) {
+    var courseFullDesc = course.innerText;
+    var teacher = course.querySelector('.course-info');
+    if (teacher != null) {
+      var courseDesc = courseFullDesc.replace(teacher.innerText, '').trim();
       subgr.Subject = courseDesc;
     }
   }
 
-  var average = $(grel).find('.average');
-  if (average.length > 0) {
-    var avgText = average.text().replace(',', '.').replace(/[^\d.-]/g, '');
+  var average = grel.querySelector('.average');
+  if (average != null) {
+    var avgText = average.textContent.replace(',', '.').replace(/[^\d.-]/g, '');
     subgr.Grade = Number.parseFloat(avgText);    
   }
   return subgr;
 }  
-
-

@@ -35,7 +35,7 @@
   "content_scripts": [
     {
       "matches": ["*://ocjene.skole.hr/pregled/ocjene/*"],
-      "js": ["/js/jquery-2.2.4.min.js", "/js/start.js"],
+      "js": ["/js/selectors.js", "/js/grades.js", "/js/start.js"],
       "css": ["/css/e-dnevnik-sazetak-inject.css"]
     }
   ]
